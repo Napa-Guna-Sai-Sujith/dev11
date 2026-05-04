@@ -1,3 +1,8 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
 trigger:
 - main
 
@@ -6,25 +11,13 @@ pool:
 
 variables:
   azureSubscription: 'Azure-Service-Connection'
-  appName: 'kavya-11'
+  appName: 'mavenapp'
 
 steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
 
-- task: AzureKeyVault@2
-  inputs:
-    azureSubscription: $(azureSubscription)
-    KeyVaultName: 'MyKeyVault'
-    SecretsFilter: '*'
-    RunAsPreJob: true
-
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    goals: 'package'
-
-- task: AzureWebApp@1
-  inputs:
-    azureSubscription: $(azureSubscription)
-    appName: $(appName)
-    package: '$(System.DefaultWorkingDirectory)/**/*.jar'
-
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
