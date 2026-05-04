@@ -6,25 +6,25 @@ pool:
 
 variables:
   azureSubscription: 'Azure-Service-Connection'
-  appName: 'kavya-app'
-  keyVaultName: 'key-11'
+  appName: 'kavya-11'
 
 steps:
 
 - task: AzureKeyVault@2
   inputs:
     azureSubscription: $(azureSubscription)
-    KeyVaultName: $(keyVaultName)
+    KeyVaultName: 'MyKeyVault'
     SecretsFilter: '*'
     RunAsPreJob: true
 
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'clean package'
+    goals: 'package'
 
 - task: AzureWebApp@1
   inputs:
     azureSubscription: $(azureSubscription)
     appName: $(appName)
     package: '$(System.DefaultWorkingDirectory)/**/*.jar'
+
