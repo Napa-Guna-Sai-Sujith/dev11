@@ -6,8 +6,8 @@ pool:
 
 variables:
   azureSubscription: 'Azure-Service-Connection'
-  appName: 'guna-webapp123'
-  keyVaultName: 'guna-keyvault'
+  appName: 'kavya-app'
+  keyVaultName: 'key-11'
 
 steps:
 
