@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  vmImage: 'windows-latest'
+  name:'MyPool'
 
 variables:
   azureSubscription: 'Azure-Service-Connection'
